@@ -50,7 +50,7 @@ class ContactForm extends Component {
         autoClose:2000,
         hideProgressBar: true,
         pauseOnHover: false,
-        position: "top-center",
+        position: "top-right",
       });
       return false;
     }
