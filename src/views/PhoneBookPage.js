@@ -12,6 +12,7 @@ import LogoPhoneBook from '../components/LogoPhoneBook';
 import Container from '../UI/Container/Container';
 import actionsOperations from '../redux/contacts/contacts-operations'
 import actionsSelectors from '../redux/contacts/contacts-selectors'
+import AppBar from '../components/AppBar'
 
 
 
@@ -21,9 +22,9 @@ import actionsSelectors from '../redux/contacts/contacts-selectors'
 
 class PhoneBookPage extends Component {
 
-//  componentDidMount(){
-//    this.props.getItemsList();
-//  }  
+ componentDidMount(){
+   this.props.getItemsList();
+ }  
 
 
   render() {
@@ -41,6 +42,7 @@ class PhoneBookPage extends Component {
           {loading === false && (
            <>
             <Container>
+                <AppBar/>
                 <LogoPhoneBook/>
                 <ContactForm/>
             </Container>

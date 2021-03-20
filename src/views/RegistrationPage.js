@@ -1,17 +1,20 @@
 import RegisterForm from '../components/RegisterForm';
-import LinkElement from '../components/LinkElement'
-import routes from '../routes';
+// import LinkElement from '../components/LinkElement'
+// import routes from '../routes';
 import Container from '../UI/Container'
+import AppBar from '../components/AppBar'
+
 
 
 
 export default function RegistrationPage() {
     return (
         <Container>
+            <AppBar/>
             <h1>Registration form</h1>
             <p>Please fill oll the fields</p>
             <RegisterForm/>
-            <LinkElement link={routes.login} styleName='Login'/>
+            {/* <LinkElement link={routes.login} styleName='Login'/> */}
         </Container>
     )
 }

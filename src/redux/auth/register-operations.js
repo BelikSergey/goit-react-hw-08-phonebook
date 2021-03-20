@@ -4,15 +4,22 @@ import authAction from './register-actions'
 
 axios.defaults.baseURL = BASE_URL;
 
-// const token = {
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    },
+    unset () {
+        axios.defaults.headers.common.Authorization = ``;
+    }
 
-// };
+};
 
 const register = credentials =>async  dispatch => {
     dispatch(authAction.registrationRequest());
 
     try {
        const response = await axios.post('/users/signup', credentials );
+       token.set(response.data.token);
        dispatch(authAction.registrationSuccess(response.data));
     } catch (error) {
         dispatch(authAction.registrationError(error.message))
@@ -24,6 +31,7 @@ const login = credentials =>async dispatch => {
 
     try {
        const response = await axios.post('/users/login', credentials );
+       token.set(response.data.token);
        dispatch(authAction.loginSuccess(response.data));
     } catch (error) {
         dispatch(authAction.loginError(error.message))
@@ -31,11 +39,39 @@ const login = credentials =>async dispatch => {
 
 };
 
-const logout = credentials => dispatch => {
+const logout = () => async dispatch => {          
+    dispatch(authAction.loginRequest());
+
+    try {
+      await axios.post('/users/logout');
+      token.unset();
+       dispatch(authAction.logoutSuccess());
+    } catch (error) {
+        dispatch(authAction.logoutError(error.message))
+    }
 
 };
 
-const getCurrentUser = credentials => dispatch => {
+const getCurrentUser = () => async (dispatch, getState) => {
+ const {
+     auth: {token: persistedToken},
+ } = getState();
+ if (!persistedToken){
+     return
+ }
+
+ token.set(persistedToken);
+ dispatch(authAction.getCurrentUserRequest());
+ try {
+    const response = await axios.get('/users/current')
+
+    dispatch(authAction.getCurrentUserSuccess(response.data))
+ } catch (error) {
+     dispatch(authAction.getCurrentUserError(error.message))
+ }
+
+
+
 
 };
 

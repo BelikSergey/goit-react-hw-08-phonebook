@@ -1,8 +1,9 @@
 import axios from 'axios';
 import actions from './contacts-actions';
+import { BASE_URL } from "../auth/BASE__URL";
 
 
-axios.defaults.baseURL='http://localhost:4040';
+axios.defaults.baseURL = BASE_URL;
 
 
 const getItemsList = () => dispatch =>{
@@ -10,7 +11,7 @@ const getItemsList = () => dispatch =>{
     axios
     .get('/contacts')
     .then(({data})=>dispatch(actions.itemGetSuccess(data)))
-    .catch(error=>dispatch(actions.itemGetError(error)));
+    .catch(error=>dispatch(actions.itemGetError(error.maessage)));
 }
 
 const addItem = ({name, number}) => dispatch=> {
@@ -19,7 +20,7 @@ const addItem = ({name, number}) => dispatch=> {
     axios
     .post('/contacts', item)
     .then(({data})=>dispatch(actions.itemAddSuccess(data)))
-    .catch(error=>dispatch(actions.itemAddError(error))); 
+    .catch(error=>dispatch(actions.itemAddError(error.maessage))); 
 
 }
 
@@ -28,7 +29,7 @@ const removeItem = id => dispatch=> {
     axios
     .delete(`/contacts/${id}`)
     .then(()=>dispatch(actions.itemRemoveSuccess(id)))
-    .catch(error=>dispatch(actions.itemRemoveError(error))); 
+    .catch(error=>dispatch(actions.itemRemoveError(error.maessage))); 
 
 }
 
