@@ -89,7 +89,13 @@ const getCurrentUser = () => async (dispatch, getState) => {
 
     dispatch(authAction.getCurrentUserSuccess(response.data))
  } catch (error) {
-     dispatch(authAction.getCurrentUserError(error.message))
+     dispatch(authAction.getCurrentUserError(error.message));
+     toast.error(error.message, {
+        autoClose: 2500,
+        hideProgressBar: true,
+        pauseOnHover: false,
+        position: "top-right",
+    })
  }
 
 

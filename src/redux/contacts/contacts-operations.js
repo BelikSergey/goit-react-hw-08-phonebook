@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 axios.defaults.baseURL = BASE_URL;
 
 
-const getItemsList = credentials => async dispatch =>{
+const getItemsList = () => async dispatch =>{
     dispatch(actions.itemGetRequest());
     try {
-        const response = await axios.get('/contacts', credentials)
+        const response = await axios.get('/contacts')
         dispatch(actions.itemGetSuccess(response.data))
     } catch (error) {
         dispatch(actions.itemGetError(error.maessage));
