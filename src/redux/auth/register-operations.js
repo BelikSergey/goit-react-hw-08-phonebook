@@ -1,6 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "./BASE__URL";
 import authAction from './register-actions'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -22,7 +25,14 @@ const register = credentials =>async  dispatch => {
        token.set(response.data.token);
        dispatch(authAction.registrationSuccess(response.data));
     } catch (error) {
-        dispatch(authAction.registrationError(error.message))
+        dispatch(authAction.registrationError(error.message));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
+
     }
 };
 
@@ -34,7 +44,13 @@ const login = credentials =>async dispatch => {
        token.set(response.data.token);
        dispatch(authAction.loginSuccess(response.data));
     } catch (error) {
-        dispatch(authAction.loginError(error.message))
+        dispatch(authAction.loginError(error.message));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
     }
 
 };
@@ -47,7 +63,13 @@ const logout = () => async dispatch => {
       token.unset();
        dispatch(authAction.logoutSuccess());
     } catch (error) {
-        dispatch(authAction.logoutError(error.message))
+        dispatch(authAction.logoutError(error.message));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
     }
 
 };

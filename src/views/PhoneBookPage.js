@@ -42,7 +42,7 @@ class PhoneBookPage extends Component {
           <>
            <AppBar/>
             <Container>
-                <LogoPhoneBook text="PhonBook"/>
+                <LogoPhoneBook text="PhoneBook"/>
                 <ContactForm/>
             </Container>
             <Container>

@@ -1,35 +1,64 @@
 import axios from 'axios';
 import actions from './contacts-actions';
 import { BASE_URL } from "../auth/BASE__URL";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 axios.defaults.baseURL = BASE_URL;
 
 
-const getItemsList = () => dispatch =>{
+const getItemsList = credentials => async dispatch =>{
     dispatch(actions.itemGetRequest());
-    axios
-    .get('/contacts')
-    .then(({data})=>dispatch(actions.itemGetSuccess(data)))
-    .catch(error=>dispatch(actions.itemGetError(error.maessage)));
+    try {
+        const response = await axios.get('/contacts', credentials)
+        dispatch(actions.itemGetSuccess(response.data))
+    } catch (error) {
+        dispatch(actions.itemGetError(error.maessage));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
+    }
+    // axios
+    // .get('/contacts')
+    // .then(({data})=>dispatch(actions.itemGetSuccess(data)))
+    // .catch(error=>dispatch(actions.itemGetError(error.maessage)));
 }
 
-const addItem = ({name, number}) => dispatch=> {
+const addItem = ({name, number}) => async dispatch=> {
     const item = {name, number};
     dispatch(actions.itemAddRequest());
-    axios
-    .post('/contacts', item)
-    .then(({data})=>dispatch(actions.itemAddSuccess(data)))
-    .catch(error=>dispatch(actions.itemAddError(error.maessage))); 
-
+    try {
+        const response = await axios.post('/contacts', item)
+        dispatch(actions.itemAddSuccess(response.data))
+    } catch (error) {
+        dispatch(actions.itemAddError(error.maessage));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
+    }
 }
 
-const removeItem = id => dispatch=> {
+const removeItem = id => async dispatch=> {
     dispatch(actions.itemRemoveRequest());
-    axios
-    .delete(`/contacts/${id}`)
-    .then(()=>dispatch(actions.itemRemoveSuccess(id)))
-    .catch(error=>dispatch(actions.itemRemoveError(error.maessage))); 
+    try {
+         await axios.delete(`/contacts/${id}`)
+        dispatch(actions.itemRemoveSuccess(id))
+    } catch (error) {
+        dispatch(actions.itemRemoveError(error.maessage));
+        toast.error(error.message, {
+            autoClose: 2500,
+            hideProgressBar: true,
+            pauseOnHover: false,
+            position: "top-right",
+        })
+    }
 
 }
 
