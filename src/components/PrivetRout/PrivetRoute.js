@@ -7,11 +7,12 @@ import registerSelectors from '../../redux/auth/register-selections'
 const PrivetRout = ({
     component: Component,
     isAuthenticated,
+    redirectTo,
     ...routeProps
 }) => (
     <Route {...routeProps}
     render={props => 
-        isAuthenticated ? <Component {...props}/> : <Redirect to="/login"/> }/>
+        isAuthenticated ? <Component {...props}/> : <Redirect to={redirectTo}/> }/>
 );
  
 const mapStateToProps= (state)=>({

@@ -56,7 +56,7 @@ class App extends Component {
           <Switch>
               <PublicRoute path={routes.main} exact component={MainPage}  />
               <PublicRoute path={routes.login} component={LoginPage} restricted redirectTo="/contacts"/>
-              <PrivetRoute path={routes.phoneBook} component={PhoneBookPage}/>
+              <PrivetRoute path={routes.phoneBook} component={PhoneBookPage} redirectTo="/"/>
               <PublicRoute
                   path={routes.registration}
                   component={RegistrationPage}
