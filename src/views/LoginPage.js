@@ -3,6 +3,7 @@ import LoginForm from '../components/LoginForm';
 // import routes from '../routes'
 import Container from '../UI/Container'
 import AppBar from '../components/AppBar'
+import LogoPhoneBook from '../components/LogoPhoneBook'
 
 
 
@@ -11,13 +12,15 @@ import AppBar from '../components/AppBar'
 
 export default function LoginPage() {
     return (
-        <Container>
-            <AppBar/>
-            <h1>Login form</h1>
-            <p>Please login</p>
+        <>
+         <AppBar/>
+         <Container>
+            <LogoPhoneBook text='Login form'/>
+            {/* <p>Please login</p> */}
             <LoginForm/>
             {/* <LinkElement link={routes.registration} styleName='Registration'/> */}
         </Container>
+        </>
     )
 }
 

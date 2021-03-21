@@ -1,20 +1,41 @@
 .header {
-    /* border-bottom: 1px solid grey; */
-    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  /* outline: 1px solid grey; */
+  box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.1);
+  /* padding-bottom: 5px; */
 }
 .NavList {
-    display: flex;
-    list-style: none;
-    padding: 5px;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
 }
-.ListItem:not(:last-child) {
-    margin-right: 10px;
-}
+
 .NavLink {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  /* color: black; */
 }
-.ActiveLink {
-    color: red;
+/* .Button {
+  width: 30px;
+  height: 30px;
+  background-color: ;
+} */
+
+/* .Email {
+  margin-left: 10px;
+} */
+.NavRegisterLogin {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 0;
+  /* margin-bottom: 10 px; */
 }
+/* .ListItem {
+  display: block;
+  border: 1px solid purple;
+  border-radius: 2px;
+  width: 100px;
+  text-align: center;
+  color: white;
+  background-color: rgb(6, 96, 156);
+} */

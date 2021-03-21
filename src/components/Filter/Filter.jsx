@@ -2,15 +2,19 @@ import styles from '../../App.module.css'
 import {connect}  from 'react-redux';
 import сontactsActions from '../../redux/contacts/contacts-actions'
 import contactsSelectors from '../../redux/contacts/contacts-selectors'
+import TextField from '@material-ui/core/TextField';
 
 const Filter = ({ filter, onChange }) => {
   // console.log('click');
   return (
-       <input className={styles.FormInput}
+       <TextField className={styles.FormInput}
+       margin="normal"
+       id="standard-basic"
+       label="Find contacts by name"
       type="text"
       name="filter"
       value={filter}
-      placeholder="Search by contacts"
+      // placeholder="Search by contacts"
       onChange={onChange}
     />
   );

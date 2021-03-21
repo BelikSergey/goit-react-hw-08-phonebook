@@ -10,15 +10,17 @@ import LogoPhoneBook from '../components/LogoPhoneBook'
 
 function MainPage() {
     return (
-        <Container>
+        <>
         <AppBar/>
+        <Container>
         <div className={styles.MainPage}>
-            <h1 className={styles.Title}>Welcome to <LogoPhoneBook/></h1>
-            <h2>If you want to continue, Please LogIn or Register</h2>
+            <h2 className={styles.Title}>Welcome to <LogoPhoneBook text='Phonebook'/></h2>
+            <h3>If you want to continue, Please LogIn or Register</h3>
             {/* <LinkElement link={routes.registration} styleName='Registration'/>
             <LinkElement link={routes.login} styleName='Login'/> */}
         </div>
         </Container>
+        </>
     )
 }
 

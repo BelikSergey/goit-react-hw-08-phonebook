@@ -4,6 +4,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from '../ContactForm/ContactForm.module.css'
 import registerOperations from '../../redux/auth/register-operations'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 
 class RegisterForm extends Component {
          
@@ -12,6 +15,15 @@ class RegisterForm extends Component {
         email: "",
         password:"",
       };
+
+      // componentDidUpdate (prevstate, nextState) {
+      //   const{name, email, password, isActive }= this.state;
+      //   if(name !== '' && email!=='' && password!=='' && isActive!==true){
+      //     this.setState({isActive: true});
+      //     // console.log(this.state.isActive);
+      //   }
+        
+      // }
 
       handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
@@ -24,6 +36,7 @@ class RegisterForm extends Component {
 
         if(name !== '' && email!=='' && password!==''){
           this.props.onRegister(this.state);
+          // this.setState({isActive: true})
         } else {
             toast.error('Empty fields!!! Please fill oll the fields', {
                 autoClose: 2000,
@@ -47,33 +60,38 @@ class RegisterForm extends Component {
         return (
             <div>
                 <form className={styles.form} onSubmit={this.handleSubmitForm}>
-                    <p>Name</p>
-                    <input className={styles.FormInput}
+                    {/* <h3>Name</h3> */}
+                    <TextField className={styles.FormInput}
+                    //  margin="normal"
+                      // id="standard-basic1"
                       type="text"
                       name="name"
-                      placeholder="Enter name"
+                      label="enter name"
                       value={name}
                       onChange={this.handleInputChange}
                     />
-                    <p>email</p>
-                    <input className={styles.FormInput}
+                    {/* <h3>email</h3> */}
+                    <TextField className={styles.FormInput}
+                      // id="standard-basic"
                       type="email"
                       name="email"
-                      placeholder="bla-bla-bla@mail.com"
+                      label="email"
                       value={email}
                       onChange={this.handleInputChange}
                     />
-                    <p>password</p>
-                    <input className={styles.FormInput}
+                    {/* <h3>password</h3> */}
+                    <TextField className={styles.FormInput}
+                      margin="normal"
+                      // id="standard-basic"
                       type="password"
                       name="password"
-                      placeholder="******"
+                      label="password"
                       value={password}
                       onChange={this.handleInputChange}
                     />
-                    <button className={styles.buttonForm} type="submit">
+                    <Button color='primary' variant='contained' className={styles.buttonForm} type="submit">
                       Register
-                    </button>
+                    </Button>
                 </form>
                 
             </div>

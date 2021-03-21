@@ -29,7 +29,7 @@ ContactsList.propTypes = {
   onRemove: PropTypes.func,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     })
   ),
 };

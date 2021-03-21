@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import { CgClose } from "react-icons/cg";
+import Button from '@material-ui/core/Button';
 import s from "./ContactsList.module.css";
 
 function ContactListItem({ id, name, number, onRemove }) {
     return (
         <li className={s.Item}>
         <span>{name}</span><span>{number}</span> 
-        <button className={s.buttonDelete} onClick={() => onRemove(id)}>
+        <Button  color='secondary' variant="contained"  type="button"  className={s.buttonDelete} onClick={() => onRemove(id)}>
           <CgClose/>
-        </button>
+        </Button>
       </li>
       
     );

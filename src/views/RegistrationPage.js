@@ -3,19 +3,22 @@ import RegisterForm from '../components/RegisterForm';
 // import routes from '../routes';
 import Container from '../UI/Container'
 import AppBar from '../components/AppBar'
+import LogoPhoneBook from '../components/LogoPhoneBook'
 
 
 
 
 export default function RegistrationPage() {
     return (
+        <>
+        <AppBar/>
         <Container>
-            <AppBar/>
-            <h1>Registration form</h1>
-            <p>Please fill oll the fields</p>
+            <LogoPhoneBook text ='Registration form'/>
+            {/* <p>Please fill oll the fields</p> */}
             <RegisterForm/>
             {/* <LinkElement link={routes.login} styleName='Login'/> */}
         </Container>
+        </>
     )
 }
 

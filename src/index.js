@@ -1,4 +1,5 @@
 import React from "react";
+import 'fontsource-roboto';
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,20 +7,23 @@ import { PersistGate } from 'redux-persist/integration/react'
 import "./index.css";
 import App from "./App";
 import store from './redux/store'
+import MainContainer from './UI/MainContainer'
 //  
 
 // console.log(store.dispatch(myAction(3)));
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store.store}>
       <PersistGate loading={null} persistor={store.persistor}>
       <BrowserRouter>
+      <MainContainer>
       <App />
+      </MainContainer>
       </BrowserRouter>
       </PersistGate>
-    </Provider> 
-  </React.StrictMode>,
+    </Provider>, 
+  // </React.StrictMode>,
     
   document.getElementById("root")
 );
