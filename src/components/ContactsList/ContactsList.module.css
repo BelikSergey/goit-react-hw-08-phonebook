@@ -14,7 +14,11 @@
 }
 .Item:last-child {
   margin-bottom: 0;
+  /* margin-left: 5px; */
 }
+/* .Item:nth-child(2) {
+  justify-content: flex-end;
+} */
 .UlList {
   margin: 15px 0 0 0;
   padding: 0;
@@ -34,4 +38,8 @@
 .exitActive {
   transform: translateX(-100%);
   transition: transform 250ms;
+}
+.Number {
+  margin-left: auto;
+  margin-right: 20px;
 }

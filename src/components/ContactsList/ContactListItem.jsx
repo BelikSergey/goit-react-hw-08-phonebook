@@ -6,7 +6,8 @@ import s from "./ContactsList.module.css";
 function ContactListItem({ id, name, number, onRemove }) {
     return (
         <li className={s.Item}>
-        <span>{name}</span><span>{number}</span> 
+        <span>{name}</span>
+        <span className={s.Number}>{number}</span> 
         <Button  color='secondary' variant="contained"  type="button"  className={s.buttonDelete} onClick={() => onRemove(id)}>
           <CgClose/>
         </Button>
