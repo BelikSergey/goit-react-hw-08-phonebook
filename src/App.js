@@ -63,7 +63,7 @@ class App extends Component {
                   restricted
                   redirectTo="/contacts"
               />
-              <Redirect to="/" />
+              <Redirect to="/"/>
           </Switch>
       </Suspense>
       <ToastContainer position="top-left" autoClose={2000} />
