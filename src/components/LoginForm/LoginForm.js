@@ -6,14 +6,8 @@ import styles from '../ContactForm/ContactForm.module.css'
 import registerOperations from '../../redux/auth/register-operations'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-// import Input from '@material-ui/core/Input';
-
-
 
 class LoginForm extends Component {
-                // static propTypes = {
-                //     prop: PropTypes
-                // }
     state = {
        email: "",
        password:"",
@@ -25,7 +19,6 @@ class LoginForm extends Component {
       };
       handleSubmitForm = (e) => {
         e.preventDefault();
-        // console.log('есть сабмит формы');
         const{ email, password}= this.state;
 
         if(email!=='' && password !== '' ){
@@ -52,30 +45,19 @@ class LoginForm extends Component {
         return (
             <div>
                 <form className={styles.form} onSubmit={this.handleSubmitForm}>
-                 
-                    {/* <h3>email</h3> */}
                     <TextField 
-                      // margin="normal"
-                      // id="standard-basic"
                       label="email" 
-                      // variant="filled"
                       className={styles.FormInput}
                       type="email"
                       name="email"
-                      // placeholder="bla-bla-bla@mail.com"
                       value={email}
                       onChange={this.handleInputChange}
                     />
-                    {/* <h3>password</h3> */}
-                    {/* <TextField id="filled-basic" label="Filled" variant="filled" /> */}
                     <TextField className={styles.FormInput}
                       margin="normal"
-                      // id="standard-basic"
-                      // variant="filled"
                       label="password" 
                       type="password"
                       name="password"
-                      // placeholder="******"
                       value={password}
                       onChange={this.handleInputChange}
                     />

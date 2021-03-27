@@ -5,7 +5,7 @@ import contactsSelectors from '../../redux/contacts/contacts-selectors'
 import TextField from '@material-ui/core/TextField';
 
 const Filter = ({ filter, onChange }) => {
-  // console.log('click');
+
   return (
        <TextField className={styles.FormInput}
        margin="normal"
@@ -14,7 +14,6 @@ const Filter = ({ filter, onChange }) => {
       type="text"
       name="filter"
       value={filter}
-      // placeholder="Search by contacts"
       onChange={onChange}
     />
   );

@@ -2,10 +2,6 @@ import { Component } from "react";
 import {connect}  from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { CSSTransition } from 'react-transition-group';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import Loader from 'react-loader-spinner';
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import styles from '../App.module.css';
 import ContactsList from "../components/ContactsList";
 import ContactForm from "../components/ContactForm";
@@ -33,15 +29,6 @@ class PhoneBookPage extends Component {
     const {contacts} = this.props;
     return (
       <>
-       {/* {error && toast.error(error, {
-        autoClose: 2500,
-        hideProgressBar: true,
-        pauseOnHover: false,
-        position: "top-right",
-        })
-       
-       } */}
-        
           <>
            <AppBar/>
             <Container>
@@ -54,7 +41,6 @@ class PhoneBookPage extends Component {
                   classNames={styles}
                    unmountOnExit>
                    <div className={styles.SearchForm}>
-                   {/* <p>Find contacts by name</p> */}
                    <Filter/>
                   </div>
                 </CSSTransition>

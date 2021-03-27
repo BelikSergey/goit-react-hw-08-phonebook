@@ -38,7 +38,7 @@ class App extends Component {
 
   componentDidMount(){
     this.props.getCurrentUser();
-    this.props.getItemsList()
+    // this.props.getItemsList()
   }  
 
 

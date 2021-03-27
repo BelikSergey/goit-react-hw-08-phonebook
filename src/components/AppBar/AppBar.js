@@ -10,8 +10,6 @@ import defaultAvatar from './avatar-2.png'
 import Button from '@material-ui/core/Button';
 
 
-// console.log(selectors.getIsAuthenticated);
-
 function NavRegisterLogin () {
     return (
         <ul className={styles.NavRegisterLogin}>
@@ -43,7 +41,6 @@ function AppBar({IsAuthenticated, email, avatar, onLogOut }) {
     return (
         <header className={styles.header}>
             {IsAuthenticated ? <UserMenu email={email} avatar={avatar} onLogOut={onLogOut}/>: <NavRegisterLogin/>}
-            {/* <LinkElement link={routes.phoneBook}  styleName='contacts'/> */}
         </header>
     )
 }
