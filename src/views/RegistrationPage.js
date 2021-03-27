@@ -1,7 +1,7 @@
 import RegisterForm from '../components/RegisterForm';
 // import LinkElement from '../components/LinkElement'
 // import routes from '../routes';
-import Container from '../UI/Container'
+import Container from '../components/UI/Container'
 import AppBar from '../components/AppBar'
 import LogoPhoneBook from '../components/LogoPhoneBook'
 

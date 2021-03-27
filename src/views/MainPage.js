@@ -3,7 +3,7 @@
 // import routes from '../routes';
 import styles from './MainPage.module.css';
 import AppBar from '../components/AppBar';
-import Container from '../UI/Container'
+import Container from '../components/UI/Container'
 import LogoPhoneBook from '../components/LogoPhoneBook'
 
 // import 

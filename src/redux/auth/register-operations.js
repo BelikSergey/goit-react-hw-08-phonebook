@@ -75,12 +75,13 @@ const logout = () => async dispatch => {
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {
- const {
+    
+    const {
      auth: {token: persistedToken},
  } = getState();
  if (!persistedToken){
      return
- }
+ } 
 
  token.set(persistedToken);
  dispatch(authAction.getCurrentUserRequest());

@@ -2,6 +2,8 @@ import { Component } from "react";
 import {connect}  from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { CSSTransition } from 'react-transition-group';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 // import Loader from 'react-loader-spinner';
 // import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import styles from '../App.module.css';
@@ -9,7 +11,7 @@ import ContactsList from "../components/ContactsList";
 import ContactForm from "../components/ContactForm";
 import Filter from "../components/Filter";
 import LogoPhoneBook from '../components/LogoPhoneBook';
-import Container from '../UI/Container/Container';
+import Container from '../components/UI/Container';
 import actionsOperations from '../redux/contacts/contacts-operations'
 import actionsSelectors from '../redux/contacts/contacts-selectors'
 import AppBar from '../components/AppBar'
@@ -31,14 +33,15 @@ class PhoneBookPage extends Component {
     const {contacts} = this.props;
     return (
       <>
-          {/* {loading === true && (
-            <Loader
-            type="ThreeDots"
-            color="#00BFFF"
-            height={80}
-            width={80}
-            />
-          ) } */}
+       {/* {error && toast.error(error, {
+        autoClose: 2500,
+        hideProgressBar: true,
+        pauseOnHover: false,
+        position: "top-right",
+        })
+       
+       } */}
+        
           <>
            <AppBar/>
             <Container>

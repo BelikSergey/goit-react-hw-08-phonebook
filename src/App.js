@@ -11,8 +11,9 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 // import Filter from "./components/Filter";
 // import LogoPhoneBook from './components/LogoPhoneBook';
 // import Container from './UI/Container/Container';
-import actionsSelectors from './redux/contacts/contacts-selectors'
+// import actionsSelectors from './redux/contacts/contacts-selectors'
 import registerOps from './redux/auth/register-operations'
+import contactsOps from './redux/contacts/contacts-operations'
 // import LinkElement from './com;
 import routes from './routes';
 import MainPage from './views/MainPage'
@@ -37,6 +38,7 @@ class App extends Component {
 
   componentDidMount(){
     this.props.getCurrentUser();
+    this.props.getItemsList()
   }  
 
 
@@ -54,7 +56,7 @@ class App extends Component {
           }
       >
           <Switch>
-              <PublicRoute path={routes.main} exact component={MainPage} />
+              <PublicRoute path={routes.main} exact component={MainPage} restricted redirectTo="/contacts"/>
               <PublicRoute path={routes.login} component={LoginPage} restricted redirectTo="/contacts"/>
               <PrivetRoute path={routes.phoneBook} component={PhoneBookPage} redirectTo="/login"/>
               <PublicRoute
@@ -125,13 +127,15 @@ class App extends Component {
   // }
 
 
-const mapStateToProps = (state) => ({
-  contacts: actionsSelectors.AllContacts(state),
-  loading: actionsSelectors.isLoading(state)
-})
+// const mapStateToProps = (state) => ({
+//   contacts: actionsSelectors.AllContacts(state),
+//   // loading: actionsSelectors.isLoading(state)
+// })
 const mapDispatchToProps = dispatch => ({
-  getCurrentUser: ()=> dispatch(registerOps.getCurrentUser())
+  getCurrentUser: ()=> dispatch(registerOps.getCurrentUser()),
+  getItemsList:() => dispatch(contactsOps.getItemsList()),
+
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
 // export default connect()(App)

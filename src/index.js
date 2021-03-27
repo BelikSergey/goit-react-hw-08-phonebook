@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import "./index.css";
 import App from "./App";
 import store from './redux/store'
-import MainContainer from './UI/MainContainer'
+import MainContainer from './components/UI/MainContainer'
 //  
 
 // console.log(store.dispatch(myAction(3)));

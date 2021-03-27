@@ -35,7 +35,7 @@ class ContactForm extends Component {
   };
   handleUniceContact = (name) => {
       // const { contacts } = this.state;
-      const isContactThere = this.props.contacts.find((contact) => contact.name === name);
+      const isContactThere = this.props.contacts.find((contact) => contact.name.toLowerCase() === name.toLowerCase());
       if (isContactThere) {
         toast.error('Contact is exist', {
           autoClose: 2000,
