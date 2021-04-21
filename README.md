@@ -1,4 +1,4 @@
-https://belka-goit-react-hw-08-phonebook.netlify.app/   
+страница приложения  https://belka-goit-react-hw-08-phonebook.netlify.app/   
 
 
 Простейшее приложение Rest API.
@@ -10,4 +10,4 @@ https://belka-goit-react-hw-08-phonebook.netlify.app/
 
 
 Это же приложение но перписанное на Хуки https://github.com/BelikSergey/goit-react-hw-09-phonebook
-https://belka-phonebook-hooks.netlify.app/
+страница приложения https://belka-phonebook-hooks.netlify.app/
